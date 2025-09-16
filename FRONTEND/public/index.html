@@ -1,0 +1,9 @@
+<!-- INTENTIONAL VIOLATION: inline script.
+WHY: Our CSP has script-src 'self' and does not allow 'unsafe-inline'. This should be blocked. -->
+<script>
+  console.log("Inline script should be blocked by CSP.");
+</script>
+
+<!-- INTENTIONAL VIOLATION: third-party script from a CDN.
+WHY: script-src only allows our origin. External CDNs are not whitelisted, so this should be blocked. -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
